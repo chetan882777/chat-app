@@ -15,10 +15,10 @@ app.use(express.static(publicDirectoryPath))
 io.on('connection', (socket) => {
     console.log('New WebSocket connection')
 
-    socket.emit('newUser', 'welcome')
+    socket.emit('message', 'welcome')
 
-    socket.on('newMessage' , (message) => {
-        io.emit('receiveMessage' , message)
+    socket.on('sendMessage' , (message) => {
+        io.emit('message' , message)
     })
 
 })
