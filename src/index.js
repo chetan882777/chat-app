@@ -29,8 +29,9 @@ io.on('connection', (socket) => {
         callback()
     })
 
-    socket.on('sendLocation', (coords)=> {
+    socket.on('sendLocation', (coords, callback)=> {
         const msg = "Location: " + coords.latitude + ", " + coords.longitude
+        callback()
         socket.broadcast.emit('message', msg)
     })
 

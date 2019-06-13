@@ -30,6 +30,8 @@ document.querySelector('#send-location').addEventListener('click', (e) => {
 
         console.log(currentLocation)
 
-        socket.emit('sendLocation', currentLocation)
+        socket.emit('sendLocation', currentLocation, () => {
+            console.log('Location shared!')
+        })
     })
 })
